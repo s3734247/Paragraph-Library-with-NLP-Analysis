@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>This is upload function</title>
+<link type="text/css" ,rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link type="text/css" , rel="stylesheet"
+	href="/static/bootstrap/css/style.css">
+	
+	
+	
+	
+
+</head>
+<body>
+	<!-- partial:index.partial.html -->
+	  <h1>Welcome to article storage platform with nlp analysis and comprehensive search function </h1>
+	   <h2>This is upload function </h2>
+	<div class="droppable">
+
+<div class="center2">
+<ul>
+       <h1>Please upload xml EXTENSIONS file </h1>
+          <form action="{{ url_for('upload') }}" enctype='multipart/form-data' method='POST'>
+		<input type="file" name="file"> <input type="submit"
+			value="Upload">
+	   </form>	  
+	   
+
+                </ul>
+
+	  
+
+	
+</div>	   
+ 
+
+		
+		
+		
+	</div>
+	<!-- partial -->
+<div class="center2">	
+		   
+{% if messg %}  
+<h1>{{messg}}</h1>  
+{% else %}
+<h1>"UNKNOWN ERROR!"</h1>  
+{% endif %} 
+</div>
+</body>
+</html>

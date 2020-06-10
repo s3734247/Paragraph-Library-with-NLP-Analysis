@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<div class="row">
+<form action="{{ url_for('search') }}" method="post" class="col-md-3">
+    <div class="form-group">
+        <label class="control-label">Post ID</label>
+        <input type="number" class="form-control" name="post_id">
+    </div>
+    <div class="form-group">
+        <label class="control-label">Publish Date</label>
+        <input type="date" class="form-control" name="publish_date">
+    </div>
+    <div class="form-group">
+        <label class="control-label">Sentiment Score</label>
+        <input type="number" class="form-control" name="sentiment_score" step="0.000001">
+    </div>  
+    <div class="form-group">
+        <label class="control-label">Sentiment Magnitude</label>
+        <input type="number" class="form-control" name="sentiment_magnitude" step="0.000001">
+    </div>    
+    <div class="form-group">
+        <label class="control-label">Author ID</label>
+        <input type="number" class="form-control" name="author_id">
+    </div>    
+    <div class="form-group">
+        <label class="control-label">Author Gender</label>
+        <select class="form-control" name="gender">
+            <option value="">--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+    </div>    
+    <div class="form-group">
+        <label class="control-label">Author Age</label>
+        <input type="number" class="form-control" name="age">
+    </div>    
+    <div class="form-group">
+        <label class="control-label">Author Industry</label>
+        <input type="number" class="form-control" name="industry">
+    </div>    
+    <div class="form-group">
+        <label class="control-label">Author Astrology Sign</label>
+        <input type="number" class="form-control" name="astro_sign">
+    </div>    
+
+    <input type="submit" class="btn btn-primary" value="Search">
+</form>
+</div>
+
+<table class='table table-striped'>
+    <thead>
+        <tr>
+            <th>Post ID</th>
+            <th>Publish Date</th>
+            <th>Sentiment Score</th>
+            <th>Sentiment Magnitude</th>
+            <th>Author ID</th>
+            <th>Blogger ID</th>
+            <th>Author Gender</th>
+            <th>Author Age</th>
+            <th>Author Industry</th>
+            <th>Author Astrology Sign</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for post in posts %}
+        <tr>
+            <td>{{ post["post_id"] }}</td>
+            <td>{{ post["publish_date"] }}</td>
+            <td>{{ post["sentiment_score"] }}</td>
+            <td>{{ post["sentiment_magnitude"] }}</td>
+            <td>{{ post["author_id"] }}</td>
+            <td>{{ post["blogger_id"] }}</td>    
+            <td>{{ post["gender"] }}</td>
+            <td>{{ post["age"] }}</td>
+            <td>{{ post["industry"] }}</td>
+            <td>{{ post["astro_sign"] }}</td>
+            <td>
+                <a href="{{ url_for('download_post', bucket_path=post['bucket_path']) }}" download>Download</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

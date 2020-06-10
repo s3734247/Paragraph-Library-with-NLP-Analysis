@@ -1,0 +1,15 @@
+{
+    "bucket_name": "bucket1_npl",
+    "project": "woven-patrol-276308",
+    "bucket2_name": "bucket2_npl",
+    "downstream_bucket": "bucket2_npl",
+    "downstream_topic": "triggerFunction2",
+    "sql_connection": "woven-patrol-276308:australia-southeast1:s3734247",
+    "sql_user": "root",
+    "sql_password": "1234abcd",
+    "sql_database": "lib1",
+    "queue": "NLPtask",
+    "location": "australia-southeast1",
+    "payload": "Hello"
+
+}
