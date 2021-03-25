@@ -2,5 +2,5 @@ google-cloud-logging
 google-cloud-storage
 flask==1.1.2
 pymysql
-pyyaml==5.3.1
+pyyaml==5.4
 SQLAlchemy==1.3.17
